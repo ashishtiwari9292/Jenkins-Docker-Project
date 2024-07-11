@@ -5,14 +5,17 @@ MAINTAINER ashishtiwari1234@gmail.com
 RUN apt-get update && apt-get install -y \
     apache2 \
     zip \
-    unzip
+    unzip \
+    curl
 
-# Download and extract the website files
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page295/kider.zip /var/www/html/
+# Download the zip file using curl
+RUN curl -o /var/www/html/kider.zip https://www.free-css.com/assets/files/free-css-templates/download/page295/kider.zip
+
+# Change working directory
 WORKDIR /var/www/html
-RUN unzip kider.zip
 
-# Move the extracted files to the correct location
+# Unzip the file and set up the content
+RUN unzip kider.zip
 RUN cp -rvf markups-kider/* .
 RUN rm -rf __MACOSX markups-kider kider.zip
 
@@ -21,4 +24,3 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 
 # Expose port 80
 EXPOSE 80
-
