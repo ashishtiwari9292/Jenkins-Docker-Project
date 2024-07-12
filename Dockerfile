@@ -1,5 +1,4 @@
 FROM ubuntu:latest
-MAINTAINER ashishtiwari1234@gmail.com
 
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
