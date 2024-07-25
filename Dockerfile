@@ -6,12 +6,13 @@ RUN apt-get update && \
                        unzip \
                        wget
 
-RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page296/oxer.zip /var/www/html/
 WORKDIR /var/www/html/
+
+# Download the zip file using wget
+RUN wget -O oxer.zip https://www.free-css.com/assets/files/free-css-templates/download/page296/oxer.zip
 RUN unzip oxer.zip
 RUN cp -rvf oxer/* .
 RUN rm -rf oxer oxer.zip
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 EXPOSE 80
- 
