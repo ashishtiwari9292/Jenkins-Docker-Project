@@ -3,7 +3,8 @@ FROM ubuntu:latest
 RUN apt-get update && \
     apt-get install -y apache2 \
                        zip \
-                       unzip
+                       unzip \
+                       wget
 
 RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page296/oxer.zip /var/www/html/
 WORKDIR /var/www/html/
