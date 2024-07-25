@@ -12,10 +12,10 @@ WORKDIR /var/www/html/
 RUN wget -O oxer.zip https://www.free-css.com/assets/files/free-css-templates/download/page296/oxer.zip
 RUN unzip oxer.zip
 
-# Add a step to list the contents of the directory
-RUN ls -l
+# # Add a step to list the contents of the directory
+# RUN ls -l
 
-# Adjust the directory name based on the listing
+# # Adjust the directory name based on the listing
 RUN cp -rvf oxer-html/* .
 RUN rm -rf oxer oxer-html oxer.zip
 
