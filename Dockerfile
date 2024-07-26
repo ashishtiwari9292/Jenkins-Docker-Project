@@ -12,7 +12,6 @@ RUN rm -rf oxer oxer-html oxer.zip
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 EXPOSE 80
 
-
 # FROM ubuntu:latest
 # RUN apt-get update && \
 #     apt-get install -y apache2 \
